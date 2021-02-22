@@ -1,7 +1,9 @@
 using GChat.Authentication;
+using GChatAPI.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -31,6 +33,8 @@ namespace GChat
         {
             services.AddCustomJWTAuth(this.Configuration);
             services.AddAuthorization(this.Configuration);
+
+            services.AddPooledDbContextFactory<ApplicationDbContext>(options => options.UseSqlite("Data Source=data.db"));
 
             services.AddGraphQLServer()
                 .AddAuthorization()
