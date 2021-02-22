@@ -8,12 +8,14 @@ namespace GChatAPI.Data
 {
     public class User
     {        
-        public string Id { get; set; } // subject of user
+        [Key]
+        public string? Id { get; set; } // subject of user
         
         [Required]
-        public string Username { get; set; }
+        [StringLength(200)]
+        public string? Username { get; set; }
 
-        public ICollection<Chat> Chats { get; set; }
+        public ICollection<Chat> Chats { get; set; } = new List<Chat>();
 
     }
 }
