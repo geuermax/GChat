@@ -7,10 +7,12 @@ using System.Threading.Tasks;
 namespace GChatAPI.Data
 {
     public class User
-    {        
+    {
+#nullable disable
         [Key]
-        public string? Id { get; set; } // subject of user
-        
+        public string Id { get; set; } // subject of user
+
+#nullable enable
         [Required]
         [StringLength(200)]
         public string? Username { get; set; }
