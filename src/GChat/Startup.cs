@@ -1,5 +1,6 @@
 using GChat.Authentication;
 using GChatAPI.Data;
+using GChatAPI.Data.DataLoader;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -39,6 +40,10 @@ namespace GChat
             services.AddGraphQLServer()
                 .AddAuthorization()
                 .AddSocketSessionInterceptor<AuthSocketInterceptor>()
+                // DataLoaders
+                .AddDataLoader<ChatByIdDataLoader>()
+                .AddDataLoader<MessageByIdDataLoader>()
+                .AddDataLoader<UserByIdDataLoader>()
                 .AddQueryType(d => d.Name("Query"))
                     .AddTypeExtension<TestQuery>()
                 .AddMutationType(d => d.Name("Mutation"))
