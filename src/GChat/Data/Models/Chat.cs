@@ -8,7 +8,8 @@ namespace GChatAPI.Data
     public class Chat
     {
         public int Id { get; set; }
-        public ICollection<User> Users { get; set; } = new List<User>();
+        //public ICollection<User> Users { get; set; } = new List<User>();
+        public ICollection<UserChat> UserChats { get; set; } = new List<UserChat>();
         public ICollection<Message> Messages { get; set; } = new List<Message>();
     }
 }

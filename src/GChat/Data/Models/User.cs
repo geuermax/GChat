@@ -17,7 +17,8 @@ namespace GChatAPI.Data
         [StringLength(200)]
         public string? Username { get; set; }
 
-        public ICollection<Chat> Chats { get; set; } = new List<Chat>();
+        //public ICollection<Chat> Chats { get; set; } = new List<Chat>();
+        public ICollection<UserChat> UserChats { get; set; } = new List<UserChat>();
 
     }
 }
