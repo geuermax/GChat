@@ -16,11 +16,17 @@ namespace GChatAPI.Data
                 .Entity<User>()
                 .HasIndex(u => u.Username)
                 .IsUnique();
+
+            modelBuilder
+                .Entity<UserChat>()
+                .HasKey(uc => new { uc.ChatId, uc.UserId });
+
         }
 
 
         public DbSet<User> Users { get; set; } = default!;
         public DbSet<Message> Messages { get; set; } = default!;
         public DbSet<Chat> Chats { get; set; } = default!;
+        public DbSet<UserChat> UsesrToChats { get; set; }
     }
 }

@@ -44,8 +44,10 @@ namespace GChat
                 .AddDataLoader<ChatByIdDataLoader>()
                 .AddDataLoader<MessageByIdDataLoader>()
                 .AddDataLoader<UserByIdDataLoader>()
+                // Querytype
                 .AddQueryType(d => d.Name("Query"))
                     .AddTypeExtension<TestQuery>()
+                // MutationType
                 .AddMutationType(d => d.Name("Mutation"))
                     .AddTypeExtension<AuthMutations>();
                 // .AddSubscriptionType(d => d.Name("Subscription"));
