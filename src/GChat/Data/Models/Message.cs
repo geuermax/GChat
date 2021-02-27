@@ -19,7 +19,8 @@ namespace GChatAPI.Data
         public int ChatId { get; set; }
         public Chat? Chat { get; set; }
 
-        public int SenderId { get; set; }
+        [Required]
+        public string? SenderId { get; set; }
         public User? Sender { get; set; }
     }
 }
