@@ -1,6 +1,7 @@
 using GChat.Authentication;
 using GChatAPI.Data;
 using GChatAPI.Data.DataLoader;
+using GChatAPI.Types;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -44,6 +45,10 @@ namespace GChat
                 .AddDataLoader<ChatByIdDataLoader>()
                 .AddDataLoader<MessageByIdDataLoader>()
                 .AddDataLoader<UserByIdDataLoader>()
+                // Datatypes
+                .AddType<ChatType>()
+                .AddType<MessageType>()
+                .AddType<UserType>()
                 // Querytype
                 .AddQueryType(d => d.Name("Query"))
                     .AddTypeExtension<TestQuery>()
