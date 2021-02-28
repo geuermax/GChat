@@ -27,6 +27,6 @@ namespace GChatAPI.Data
         public DbSet<User> Users { get; set; } = default!;
         public DbSet<Message> Messages { get; set; } = default!;
         public DbSet<Chat> Chats { get; set; } = default!;
-        public DbSet<UserChat> UserChats { get; set; }
+        public DbSet<UserChat> UserChats { get; set; } = default!;
     }
 }
