@@ -1,6 +1,9 @@
 using GChat.Authentication;
 using GChatAPI.Data;
 using GChatAPI.Data.DataLoader;
+using GChatAPI.Graphql.Chats;
+using GChatAPI.Graphql.Messages;
+using GChatAPI.Graphql.Users;
 using GChatAPI.Types;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -50,8 +53,10 @@ namespace GChat
                 .AddType<MessageType>()
                 .AddType<UserType>()
                 // Querytype
-                .AddQueryType(d => d.Name("Query"))
-                    .AddTypeExtension<TestQuery>()
+                .AddQueryType(d => d.Name("Query"))                    
+                    .AddTypeExtension<UserQueries>()
+                    .AddTypeExtension<MessageQueries>()
+                    .AddTypeExtension<ChatQueries>()
                 // MutationType
                 .AddMutationType(d => d.Name("Mutation"))
                     .AddTypeExtension<AuthMutations>();
