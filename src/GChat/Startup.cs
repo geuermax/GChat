@@ -59,7 +59,11 @@ namespace GChat
                     .AddTypeExtension<ChatQueries>()
                 // MutationType
                 .AddMutationType(d => d.Name("Mutation"))
-                    .AddTypeExtension<AuthMutations>();
+                    .AddTypeExtension<AuthMutations>()
+                    .AddTypeExtension<UserMutations>()
+                    .AddTypeExtension<ChatMutations>()
+                    .AddTypeExtension<MessageMutations>();
+                
                 // .AddSubscriptionType(d => d.Name("Subscription"));
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
