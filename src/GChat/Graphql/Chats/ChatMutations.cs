@@ -1,6 +1,7 @@
 ﻿using GChatAPI.Data;
 using GChatAPI.Data.DataLoader;
 using GChatAPI.Extensions;
+using GChatAPI.Graphql.Common;
 using HotChocolate;
 using HotChocolate.AspNetCore.Authorization;
 using HotChocolate.Types;
@@ -36,6 +37,11 @@ namespace GChatAPI.Graphql.Chats
             if (!userIds.Contains(userId))
             {
                 userIds.Add(userId);
+            }
+
+            if (userIds.Count < 2)
+            {
+                throw new Exception("At least two users to create a chat.");
             }
 
             var chat = new Chat

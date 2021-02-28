@@ -1,9 +1,11 @@
 ﻿using GChatAPI.Data;
 using GChatAPI.Data.DataLoader;
+using GChatAPI.Extensions;
 using HotChocolate;
 using HotChocolate.AspNetCore.Authorization;
 using HotChocolate.Types;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +18,9 @@ namespace GChatAPI.Graphql.Users
     [ExtendObjectType(Name = "Query")]
     public class UserQueries
     {
+        [UseApplicationDbContext]
+        public Task<List<User>> GetUsersAsync([ScopedService] ApplicationDbContext dbContext) => dbContext.Users.ToListAsync();
+
 
         public async Task<User> GetUserAsync([Service]IHttpContextAccessor contextAccessor, UserByIdDataLoader userById, CancellationToken ct)
         {
