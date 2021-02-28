@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Data\DataLoader\" />
+    <Folder Include="Graphql\" />
   </ItemGroup>
 
 </Project>

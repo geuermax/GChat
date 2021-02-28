@@ -16,6 +16,7 @@ namespace GChatAPI.Data
         [Required]
         public DateTime Timestamp { get; set; }
 
+        [Required]
         public int ChatId { get; set; }
         public Chat? Chat { get; set; }
 
