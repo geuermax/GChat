@@ -47,8 +47,8 @@ namespace GChat.Authentication
             string id = connection.HttpContext.Connection.Id;
             _connections.TryAdd(id, connection);
             Debug.WriteLine("Websocket added to manager. " + id);
-            //var timer = new System.Timers.Timer(15 * 1000 * 60);
-            var timer = new System.Timers.Timer(30 * 1000); // for testing
+            var timer = new System.Timers.Timer(15 * 1000 * 60);
+            //var timer = new System.Timers.Timer(30 * 1000); // for testing
             timer.Elapsed += async (sender, e) =>
             {
                 Debug.WriteLine("Expiration of websocket exceeded. Closing websocket with id: " + id);
