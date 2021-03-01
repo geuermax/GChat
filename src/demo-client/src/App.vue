@@ -7,6 +7,7 @@
 		<!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
 		<create-user-component />
 		<create-chat-component />
+		<send-message-component />
 	</div>
 </template>
 
@@ -14,13 +15,14 @@
 // import HelloWorld from './components/HelloWorld.vue'
 import CreateUserComponent from "@/components/CreateUserComponent.vue";
 import CreateChatComponent from "./components/CreateChatComponent.vue";
+import SendMessageComponent from "./components/SendMessageComponent.vue";
 
 export default {
 	name: "App",
 	components: {
-		// HelloWorld,
 		CreateUserComponent,
 		CreateChatComponent,
+		SendMessageComponent,
 	},
 	computed: {
 		login: () => {
@@ -46,5 +48,10 @@ export default {
 	width: 300px;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+select {
+	display: block;
+	width: 100%;
 }
 </style>

@@ -1,5 +1,6 @@
 <template>
 	<div class="container">
+		<h3>Create user</h3>
 		<input type="text" placeholder="Username" v-model="username" />
 		<button @click="addUser">Create User</button>
 	</div>

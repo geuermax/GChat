@@ -1,6 +1,7 @@
 <template>
 	<div class="container">
-		<select v-model="selectedUser" style="display: block; width: 100%">
+		<h3>Create chat</h3>
+		<select v-model="selectedUser">
 			<option v-for="user in users" :key="user.id" :value="user">
 				{{ user.username }}
 			</option>
