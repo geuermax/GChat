@@ -76,16 +76,16 @@ namespace GChat.Authentication
         }
 
         public bool ExtendSocketConnection(string id)
-        {
-            // System.Timers.Timer? timer;
+        {            
             _timers.TryGetValue(id, out var timer);
             if (timer != null)
             {
                 timer.Stop();
                 timer.Start();
+                Debug.WriteLine("Expiration of websocket connection extended.");
                 return true;
             }
-
+            
             return false;
         }
     }
