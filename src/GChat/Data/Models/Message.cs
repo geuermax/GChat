@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace GChatAPI.Data
 {
     public class Message
-    {
+    {        
         public int Id { get; set; }
 
         [Required]        

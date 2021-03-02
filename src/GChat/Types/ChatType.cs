@@ -17,6 +17,11 @@ namespace GChatAPI.Types
 
         protected override void Configure(IObjectTypeDescriptor<Chat> descriptor)
         {
+            descriptor
+                .Field(c => c.Id)
+                .Type<NonNullType<IdType>>();
+
+
             descriptor.Field(c => c.UserChats)
                 .ResolveWith<ChatResolvers>(cr => cr.GetUsersAsync(default!, default!, default!, default))
                 .UseDbContext<ApplicationDbContext>()

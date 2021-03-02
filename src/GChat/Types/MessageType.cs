@@ -15,6 +15,9 @@ namespace GChatAPI.Types
 
         protected override void Configure(IObjectTypeDescriptor<Message> descriptor)
         {
+            descriptor
+                .Field(m => m.Id)
+                .Type<NonNullType<IdType>>();
 
             // resolve sender
             descriptor
@@ -23,7 +26,8 @@ namespace GChatAPI.Types
 
             descriptor
                 .Field(m => m.SenderId)
-                .ID(nameof(User));
+                .Ignore();
+                //.ID(nameof(User));
 
             // resolve chat
             descriptor
@@ -32,7 +36,8 @@ namespace GChatAPI.Types
 
             descriptor
                 .Field(m => m.ChatId)
-                .ID(nameof(Chat));
+                .Ignore();
+                //.ID(nameof(Chat));
         }
 
 
