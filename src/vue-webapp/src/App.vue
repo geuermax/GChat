@@ -27,10 +27,16 @@ export default {
 <style>
 :root {
   --header-bg: #24292E;
+  --sidebar-bg: #2B3A4F;
   --color-light: #ffffff;
   --color-light-grey: #94A3B9;
   --color-dark: #24292E;
   --color-success: #57CA85;
   --color-warning: #F8C300;
+  --color-blue: #206DD8;
+}
+
+html {
+  overflow: hidden !important;
 }
 </style>
