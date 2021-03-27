@@ -34,25 +34,25 @@ export default {
 <style>
 .mx-home {
   height: 100%;
-  display: grid;
+  display: grid;  
 }
 
 @media (min-width: 960px) {
   .mx-home {
-    grid-template-columns: 3fr 7fr;
+    grid-template-columns: minmax(0, 3fr) 7fr;
   }
 }
 
-@media (min-width: 1264px) {
+@media (min-width: 1650px) {
   .mx-home {
-    grid-template-columns: 2fr 8fr;
+    grid-template-columns: minmax(0, 2fr) 8fr;
   }
 }
 
 
 @media (min-width: 2600px) {
   .mx-home {
-    grid-template-columns: 1fr 9fr;
+    grid-template-columns: minmax(0, 1fr) 9fr;
   }
 } 
 
