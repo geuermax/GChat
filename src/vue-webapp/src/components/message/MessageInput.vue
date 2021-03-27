@@ -11,25 +11,21 @@ import { mdiSend } from '@mdi/js';
 
 export default {
     name: 'MessageInput',
-    mounted: function() {
-        this.setWidth();
-        window.onresize = () => {
-            this.setWidth();
-        };    
+    props: {
+        width: {
+            type: Number,
+            required: true
+        }
     },
     data: function() {
-        return {
-            width: 0,
+        return {           
             icons: {
                 mdiSend
             }
         };
     },
     methods: {
-        setWidth: function() {
-            this.width = this.width = this.$refs.mxMessageInputWrapper.__vue__.$parent.$el.offsetWidth;
-        },
-        sendClickedHandler: function() {
+        sendClickedHandler() {
             console.log('Send clicked');
         }
     }
@@ -41,10 +37,11 @@ export default {
     height: 80px;    
     position: fixed;
     bottom: 0;     
-    padding: 15px;    
+    padding: 15px;
+    width: 100%;
 }
 
 .mx-message-input-wrapper .mx-message-input {    
-    height: 50px;    
+    height: 50px;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div class="mx-chat" ref="mxChat">
     <Messagelist></Messagelist>
-    <Message-input></Message-input>
+    <Message-input :width="width"></Message-input>
   </div>
 </template>
 
@@ -13,15 +13,24 @@ import Messagelist from './message/Messagelist.vue';
 
 export default {
 	components: { Messagelist, MessageInput },
-    name: 'Chat',    
+  name: 'Chat',  
+  mounted: function() {
+    this.setWidth();
+    window.addEventListener('resize', this.setWidth, { passive: true });
+  },
+  data: function() {
+    return {
+      width: 1
+    };
+  },
+  methods: {
+    setWidth() {      
+      this.width = this.$refs.mxChat != undefined ? this.$refs.mxChat.offsetWidth : this.width;      
+    }
+  }
 };
 </script>
 
 <style>
-.mx-chat {  
-  position: relative;
-  /* background: green; */
-  height: 100%;    
-  flex: 1;  
-}
+
 </style>

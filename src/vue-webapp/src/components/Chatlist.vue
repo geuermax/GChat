@@ -1,6 +1,6 @@
 <template>
   <div class="mx-chat-list">
-    <v-btn class="mx-create-chat-btn" block><v-icon class="mx-btn-icon">{{ icons.mdiCommentEditOutline }}</v-icon> Create chat</v-btn>
+    <v-btn class="mx-create-chat-btn" block small><v-icon class="mx-btn-icon" small>{{ icons.mdiCommentEditOutline }}</v-icon> Create chat</v-btn>
   </div>
 </template>
 
@@ -35,33 +35,5 @@ export default {
 .mx-btn-icon {
   margin-right: 5px;
 }
-
-@media (max-width: 960px) {
-  .mx-chat-list {
-    display: none;
-  }
-}
-
-@media (min-width: 960px) {
-  .mx-chat-list {
-    width: 30%;
-  }
-}
-
-@media (min-width: 1264px) {
-  .mx-chat-list {
-    width: 20%;
-  }
-}
-
-
-@media (min-width: 1904px) {
-  .mx-chat-list {
-    width: 15%;
-  }
-}
-
-
-
 
 </style>
