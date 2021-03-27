@@ -36,8 +36,9 @@ export default {
 .mx-message-input-wrapper {
     height: 80px;    
     position: fixed;
-    bottom: 0;     
-    padding: 15px;
+    bottom: 0;
+    right: 0;
+    padding: 15px;    
     width: 100%;
 }
 

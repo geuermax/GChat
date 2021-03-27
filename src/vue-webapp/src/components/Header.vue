@@ -1,9 +1,9 @@
 <template>
-  <div class="mx-header">
-      <v-icon class="mx-header-icon" role="img" color="#94a3b9" size="40">
+  <v-app-bar dense color="#24292E">
+      <v-icon class="mx-header-icon" role="img" color="#94a3b9" size="32">
         {{ mdiMessage }}
       </v-icon>
-  </div>
+  </v-app-bar>  
 </template>
 
 <script>
@@ -23,16 +23,7 @@ export default {
 </script>
 
 <style>
-.mx-header {
-  background: var(--header-bg);
-  color: var(--color-light-grey);
-  height: 75px;
-  display: flex;
-  align-items: center;
-  padding: 0 15px;
-}
-
-.mx-header .mx-header-icon {
+.mx-header-icon {
   transform: scaleX(-1);
   color: var(--color-light-grey);
 }
