@@ -30,10 +30,13 @@ export default {
   --sidebar-bg: #2B3A4F;
   --color-light: #ffffff;
   --color-light-grey: #94A3B9;
+  --color-light-grey1: #e5e5e5;
+  --color-grey: #C4C4C4;
   --color-dark: #24292E;
   --color-success: #57CA85;
   --color-warning: #F8C300;
   --color-blue: #206DD8;
+  --color-blue1: #7289DA;
 }
 
 html {
