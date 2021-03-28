@@ -3,7 +3,7 @@ import VueRouter from 'vue-router';
 import Index from '../views/Index.vue';
 import Home from '../views/Home.vue';
 import Chat from '@/components/Chat.vue';
-
+import Chatlist from '@/components/Chatlist.vue';
 
 Vue.use(VueRouter);
 
@@ -24,6 +24,11 @@ const routes = [
         component: Chat
       }
     ]
+  },
+  {
+    path: '/chats',
+    name: 'Chats',
+    component: Chatlist
   },
   {
     path: '/about',
