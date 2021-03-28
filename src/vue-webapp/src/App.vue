@@ -4,22 +4,25 @@
     <v-main>
       <router-view></router-view>
     </v-main>
+    <Firststart-dialog v-model="test"></Firststart-dialog>
   </v-app>
 </template>
 
 <script>
 // Component import
 import Header from '@/components/Header.vue';
+import FirststartDialog from './components/firststart/FirststartDialog.vue';
 
 export default {
   name: 'App',
 
   components: {
     Header,
+    FirststartDialog,
   },
 
   data: () => ({
-    //
+    test: true
   }),
 };
 </script>
