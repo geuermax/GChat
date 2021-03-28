@@ -1,17 +1,18 @@
 <template>
   <div class="mx-home">
     <Chatlist v-if="!isMobile"></Chatlist>
-    <Chat></Chat>
+    <!-- <Chat></Chat> -->
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 // Component import
 import Chatlist from '@/components/Chatlist.vue';
-import Chat from '@/components/Chat.vue';
+// import Chat from '@/components/Chat.vue';
 
 export default {
-	components: { Chatlist, Chat },
+	components: { Chatlist, /*Chat*/ },
   name: 'Home',    
   mounted: function() {
     this.setIsMobile();
