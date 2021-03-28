@@ -1,7 +1,6 @@
 <template>
   <div class="mx-home">
-    <Chatlist v-if="!isMobile"></Chatlist>
-    <!-- <Chat></Chat> -->
+    <Chatlist v-if="!isMobile"></Chatlist>    
     <router-view></router-view>
   </div>
 </template>
@@ -9,26 +8,18 @@
 <script>
 // Component import
 import Chatlist from '@/components/Chatlist.vue';
-// import Chat from '@/components/Chat.vue';
+
+// Vuex import
+import { mapState } from 'vuex';
 
 export default {
-	components: { Chatlist, /*Chat*/ },
-  name: 'Home',    
-  mounted: function() {
-    this.setIsMobile();
-    window.addEventListener('resize', this.setIsMobile, {passive: true});
+	components: { Chatlist },
+  name: 'Home',
+  computed: {
+    ...mapState({
+      isMobile: state => state.isMobile
+    })
   },
-  data: function() {
-    return {
-      isMobile: false
-    };
-  },
-  methods: {
-    setIsMobile() {      
-      this.isMobile = window.innerWidth < 960;
-    }
-  }
-
 };
 </script>
 

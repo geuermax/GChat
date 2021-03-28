@@ -13,17 +13,35 @@
 import Header from '@/components/Header.vue';
 import FirststartDialog from './components/firststart/FirststartDialog.vue';
 
+// Vuex import
+import { mapState, mapMutations } from 'vuex';
+
 export default {
   name: 'App',
-
   components: {
     Header,
     FirststartDialog,
   },
-
+  computed: {
+    ...mapState({
+      isMobile: state => state.isMobile
+    })
+  },
+  mounted: function() {
+    this.checkIsMobile();
+    window.addEventListener('resize', this.checkIsMobile, {passive: true});
+  },
   data: () => ({
-    test: true
+    test: true, // show if no user exist in prod
+    
   }),
+  methods: {
+    ...mapMutations(['setIsMobile']),
+    checkIsMobile() {    
+      let mobile = window.innerWidth < 960;      
+      this.setIsMobile(mobile);            
+    }
+  }
 };
 </script>
 
@@ -43,6 +61,6 @@ export default {
 }
 
 html {
-  overflow: hidden !important;
+  overflow: auto !important;
 }
 </style>
