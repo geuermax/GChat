@@ -6,9 +6,43 @@ import vuetify from './plugins/vuetify';
 
 Vue.config.productionTip = false;
 
-new Vue({
-  router,
-  store,
-  vuetify,
-  render: function (h) { return h(App); }
-}).$mount('#app');
+import Keycloak from 'keycloak-js';
+
+
+const keycloakConfig = {
+  url: 'http://localhost:80/auth',
+  realm: 'master',
+  clientId: 'vue-dev'
+};
+
+// @ts-ignore
+var keycloak = new Keycloak(keycloakConfig);
+
+keycloak.init({
+  onload: 'login-required'
+})
+  .then(function (authenticated) {
+    console.debug('User authenticated? ' + authenticated);
+
+    if (!authenticated) {
+      keycloak.login();
+    }
+
+    store.commit('setKeycloak', keycloak);
+    new Vue({
+      router,
+      store,
+      // @ts-ignore
+      vuetify,
+      // @ts-ignore
+      render: function (h) { return h(App); }
+    }).$mount('#app');
+  })
+  .catch(function (err) {
+    console.debug('Authentication error: ' + err);
+    alert('Something went worng with your authentication. Please try again.');
+  });
+
+
+
+

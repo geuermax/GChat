@@ -32,7 +32,7 @@ export default {
     window.addEventListener('resize', this.checkIsMobile, {passive: true});
   },
   data: () => ({
-    test: true, // show if no user exist in prod
+    test: false, // show if no user exist in prod
     
   }),
   methods: {
