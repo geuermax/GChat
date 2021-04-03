@@ -4,9 +4,7 @@
       <v-btn class="mx-create-chat-btn" block small><v-icon class="mx-btn-icon" small>{{ icons.mdiCommentEditOutline }}</v-icon> Create chat</v-btn>
     </div>
     <ul class="mx-chat-list-list">
-      <Chatlist-item></Chatlist-item>
-      <Chatlist-item></Chatlist-item>
-      
+      <Chatlist-item v-for="(item, index) in chats" :key="index" :chat="item"></Chatlist-item>            
     </ul>
   </div>
 </template>
@@ -14,16 +12,37 @@
 <script>
 import { mdiCommentEditOutline } from '@mdi/js';
 import ChatlistItem from './chatlist/ChatlistItem.vue';
+import { chats } from '@/graphql'; 
+import { mapState, mapMutations } from 'vuex';
+
+
 
 export default {
 	components: { ChatlistItem },
     name:'Chatlist',
+    computed: {
+      ...mapState({
+        chats: state => state.chats.chats
+      })
+    },
     data: function() {
       return {
         icons: {
           mdiCommentEditOutline
-        }
+        },
       };
+    },
+    methods: {
+      ...mapMutations(['setChats'])
+    },
+    apollo: {
+      queryChats: {
+        query: chats,
+        update: function(data) {
+          console.log(data.chats);     
+          this.setChats(data.chats);  
+        }
+      }
     }
 };
 </script>

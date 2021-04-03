@@ -1,6 +1,8 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import keycloak from './keycloak';
+import chats from './chats';
+
 
 Vue.use(Vuex);
 
@@ -17,6 +19,7 @@ export default new Vuex.Store({
   actions: {
   },
   modules: {
-    keycloak
+    keycloak,
+    chats
   }
 });

@@ -2,12 +2,12 @@
   <li class="mx-chatlist-item">
       <div class="mx-chatlist-item-start">
         <div>
-            <Avatar input="Max Geuer"></Avatar>
+            <Avatar :input="participants[0].username"></Avatar>
         </div>
         <div class="mx-chat-description">
-            <div class="mx-chat-name">Max Geuer</div>
+            <div class="mx-chat-name">{{ participants[0].username }}</div>
             <div class="mx-chat-last-message">
-                Dies ist die letzte Nachricht in diesem Chat, aber die Nachricht muss länger sein, damit die drei Punkte angezeigt werden :D
+                {{ getLastMessage }}
             </div>
         </div>
       </div>
@@ -17,9 +17,30 @@
 
 <script>
 import Avatar from '../avatar/Avatar.vue';
+
+import { mapGetters } from 'vuex';
+
+
 export default {
 	components: { Avatar },
-    name: 'ChatlistItem'
+    name: 'ChatlistItem',
+    props: {
+        chat: {
+            type: Object,
+            required: true
+        }
+    },
+    computed: {
+        ...mapGetters(['getSubject']),
+        participants: function() {
+            let me = this.getSubject;            
+            let withoutMe = this.chat.participants.filter(i => i.id !== me);
+            return withoutMe;            
+        },
+        getLastMessage: function() {
+            return 'Add last message';
+        }
+    },
 };
 </script>
 
