@@ -63,4 +63,24 @@ export default {
 html {
   overflow: auto !important;
 }
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0,0,0,0.4);
+}
+
+
+body {
+  scrollbar-color: rgba(0,0,0,0.4) transparent;
+  scrollbar-width: 11px;
+}
+
+
 </style>
