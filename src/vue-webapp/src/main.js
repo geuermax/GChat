@@ -7,6 +7,7 @@ import vuetify from './plugins/vuetify';
 Vue.config.productionTip = false;
 
 import Keycloak from 'keycloak-js';
+import { createProvider } from './vue-apollo';
 
 
 const keycloakConfig = {
@@ -32,8 +33,12 @@ keycloak.init({
     new Vue({
       router,
       store,
+
       // @ts-ignore
       vuetify,
+
+      apolloProvider: createProvider(),
+
       // @ts-ignore
       render: function (h) { return h(App); }
     }).$mount('#app');
